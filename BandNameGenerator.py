@@ -1,7 +1,9 @@
 # Band Name Generator
 
-firstName = raw_input("What is your first name?")
-print(firstName)
+cityName = raw_input("What is the name of the city you grew up in?")
+print(cityName)
 petName = raw_input("What is your pets name?")
 print(petName)
-print('Your band name could be ' + firstName + " " + petName)
+print('Your band name could be ' + cityName + " " + petName)
+
+
