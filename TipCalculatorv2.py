@@ -14,6 +14,6 @@ bill_with_tip = bill * (1 + float(tip) / 100)
 bill_per_person = bill_with_tip / people
 
 final_bill = round(bill_per_person, 2)
-
+final_bill = "{:.2f}".format(bill_per_person)
 print("Each person should pay: $" + str(final_bill))
 
