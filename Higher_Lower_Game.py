@@ -332,51 +332,57 @@ def select_rand():
 
 a = select_rand()
 b = select_rand()
-
-##### Swap function?
-# if guess == "A" and a['follower_count'] > b['follower_count']:
-    #then select new A new_A = data[rd.randint(1,length_data+1)]
-
-# elif guess == "B" and a['follower_count'] < b['follower_count']:
-    #B becomes A, select new B
-
+if a == b:
+    b = select_rand
+# Alternative code
+#a = rd.choice(data)
+#b = rd.choice(data)
+#if a == b:
+#    b = rd.choice(data)
 
 # present 2 random instagram accounts A & B
-# print logo
-print(logo)
-# print first option with info
-print('Compare A: ', a['name'], 'a ',a['description'], 'from ',a['country'], a['follower_count'])
-# print vs 
-print(vs)
-# print second option with info
-print('Compare B: ', b['name'], 'a ',b['description'], 'from ',b['country'], b['follower_count'])
+def print_game():
+    # print logo
+    print(logo)
+    # print first option with info
+    print('Compare A: ', a['name'], 'a ',a['description'], 'from ',a['country'], a['follower_count'])
+    # print vs 
+    print(vs)
+    # print second option with info
+    print('Compare B: ', b['name'], 'a ',b['description'], 'from ',b['country'], b['follower_count'])
 
+
+print_game()
 # ask which has more followers A or B
-guess = input("Who has more followers? Type 'A' or 'B': ")
+guess = input("Who has more followers? Type 'A' or 'B': ").upper()
 
 # count of correct guesses
 right_answers = 0
-if guess == "A" and a['follower_count'] > b['follower_count']:
-    #then select new A new_A = data[rd.randint(1,length_data+1)]
-    b = a
-    a = select_rand()
-    right_answers = right_answers + 1
-    print("A was right!!!")
-    print(right_answers)
-elif guess == "B" and a['follower_count'] < b['follower_count']:
-    #B becomes A, select new B
-    a = b
-    b = select_rand()
-    right_answers = right_answers + 1
-    print("B was right!!!")
-    print(right_answers)
-else:
-    print("You Lose! Loser!!!!!!!")
 
-print(1)
-print(a)
-print(2)
-print(b)
+continue_game = True
+while continue_game:
+    if guess == "A" and a['follower_count'] > b['follower_count']:
+        #game_continue = True
+        #then select new A new_A = data[rd.randint(1,length_data+1)]
+        a = select_rand()
+        b = select_rand()
+        right_answers = right_answers + 1
+        print(f"You're right! Current score: {right_answers}.")
+        print_game()
+        guess = input("Who has more followers? Type 'A' or 'B': ").upper()
+    elif guess == "B" and a['follower_count'] < b['follower_count']:
+        #game_continue = True
+        #B becomes A, select new B
+        a = b
+        b = select_rand()
+        right_answers = right_answers + 1
+        print(f"You're right! Current score: {right_answers}.")
+        print_game()
+        guess = input("Who has more followers? Type 'A' or 'B': ").upper()
+    else:
+        continue_game = False
+        print(f"Sorry thats wrong. Final Score: {right_answers}.")
+
 
 # ask which has more followers A or B
 # if guess is correct, add tally:
