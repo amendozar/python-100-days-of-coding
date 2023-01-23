@@ -364,7 +364,7 @@ while continue_game:
     if guess == "A" and a['follower_count'] > b['follower_count']:
         #game_continue = True
         #then select new A new_A = data[rd.randint(1,length_data+1)]
-        a = select_rand()
+        a = b
         b = select_rand()
         right_answers = right_answers + 1
         print(f"You're right! Current score: {right_answers}.")
